@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    :root {
+      --color-red: hsl(0, 100%, 67%);
+      --color-yellow: hsl(39, 100%, 56%);
+      --color-teal: hsl(166, 100%, 37%);
+      --color-blue: hsl(234, 85%, 45%);
+
+      --color-royalpurple: hsl(252, 100%, 67%);
+      --colur-royalblue: hsl(241, 81%, 54%);
+
+      --color-circleblue: hsla(241, 72%, 46%, 0);
+      --color-circlepurplse: hsla(256, 72%, 46%, 1);
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(241, 100%, 89%);
+
+    }
+
+    .main {
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 500px;
+
+      border-radius: 20px; 
+      height: 400px; 
+    }
+
+    .left{
+      font-family: "Hanken Grotesk", sans-serif;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: space-evenly;
+      border-radius: 20px;
+      background-image: linear-gradient(to bottom, var(--color-royalpurple), var(--colur-royalblue) );
+    }
+
+    .left h2{
+      color: white;
+    }
+    .left h3{
+      color: white;
+      font-weight: 300;
+    }
+
+    .circle{
+      width: 120px;
+      height: 120px; 
+      border-radius: 200px;
+      background-image: linear-gradient(to bottom, var(--color-circlepurplse), var(--color-circleblue));
+    }
+
+    .circle h1{
+      margin-top: 20px;
+      color: white; 
+      font-size: 40px;
+    }
+
+    .circle h6{
+      color: white;
+      font-weight: 300;
+    }
+
+    .great_text p{
+      font-weight: 300;
+      color: white;
+      margin: 10px 15px; 
+      font-size: 15px;
+    }
+
+
+    /* Summary side */
+
+    .right{
+
+      border-radius: 20px;
+      font-family: "Hanken Grotesk", sans-serif;
+      font-weight: 500;
+      background-color: white;
+
+    }
+
+    .right h2 {
+      margin: 5px; 
+    }
+
+    .right div{
+      text-align: center;
+    }
+
+    .right-main h3{
+      text-align: left;
+      margin-top: 35px;
+      margin-left: 25px
+    }
+
+    .buttons{
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      margin-top: 10px
+    }
+
+    .item-1{
+      background-color: hsl(0, 100%, 87%); 
+      font-family: "Hanken Grotesk", sans-serif;
+      font-weight: 350;
+   
+      border-radius: 10px;
+      width: 200px;
+      padding: 10px 7px; 
+      margin: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+    }
+
+    .item-1 p{
+      text-align: right;
+    }
+    .item-1 img{
+      margin-right: 5px;
+    }
+
+    .child-item1{
+      display: flex;
+    }
+
+    .child-item1 p{
+      color: var(--color-red);
+      font-weight: 500;
+    }
+  
+
+    .item-2{
+      background-color: hsl(39, 100%, 86%);
+      
+      border-radius: 10px;
+      width: 200px;
+      padding: 10px 7px; 
+      margin: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+    }
+
+    .item-2 p{
+      text-align: right;
+    }
+
+    .item-2 img{
+      margin-right: 5px;
+    }
+
+    .child-item2{
+      display: flex;
+    }
+
+    .child-item2 p{
+      color: var(--color-yellow);
+      font-weight: 500;
+    }
+
+    .item-3{
+      background-color: hsl(166, 100%, 86%);
+
+      border-radius: 10px;
+      width: 200px;
+      padding: 10px 7px; 
+      margin: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+    }
+
+    .item-3 p{
+      text-align: right;
+    }
+
+    .item-3 img{
+      margin-right: 5px;
+    }
+
+    .child-item3{
+      display: flex;
+      
+    }
+
+    .child-item3 p{
+      color: var(--color-teal);
+      font-weight: 500;
+    }
+
+    .item-4{
+      background-color: hsl(234, 85%, 86%);
+
+      border-radius: 10px;
+      width: 200px;
+      padding: 10px 7px; 
+      margin: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+    }
+
+    .item-4 p{
+      text-align: right;
+    }
+
+    .item-4 img{
+      margin-right: 5px;
+    }
+
+    .child-item4{
+      display: flex;
+
+    }
+
+    .child-item4 p{
+      color: var(--color-blue);
+      font-weight: 500;
+    }
+
+    button {
+      width: 170px; 
+      border-radius: 10px;
+    }
+
+    .right-main button{
+      width: 200px;
+      border-radius: 30px;
+      margin-top: 35px;
+      cursor: pointer; 
+      padding: 10px;
+      color: white;
+      font-family: "Hanken Grotesk", sans-serif;
+      font-weight: 500;
+      background-image: linear-gradient(to bottom, var(--color-royalpurple), var(--colur-royalblue));
+    }
+
+    @media (max-width: 375px) {
+      .main {
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+      }
+
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="main">
+
+    <div class="left">
+      <h3>Your Result</h3>
+      <div class="circle">
+        <h1>76</h1>
+        <h6>of 100</h6>
+      </div>
+
+      <div class="great_text">
+      <h2>Great</h2>
+      <p>You scored higher than 65% of the 
+        people who have taken these tests.</p>
+      </div>
+  
+      
+    </div>
+
+    <div class="right">
+      
+      <div class="right-main">
+        <h3>Summary</h3>
+        <div class="buttons">
+          
+          <div class="item-1">
+            <div class="child-item1">
+              <img src="assets/images/icon-reaction.svg"/>
+              <p>Reaction</p>
+            </div>
+            <p> <strong>80</strong> / 100</p>
+          </div>
+          
+          <div class="item-2">
+            <div class="child-item2">
+              <img src="assets/images/icon-memory.svg"/>
+              <p>Memory</p>
+            </div>
+            <p><strong>92</strong> / 100</p>
+          </div>
+          
+          <div class="item-3">
+            <div class="child-item3">
+              <img src="assets/images/icon-verbal.svg"/>
+              <p>Verbal</p>
+            </div>
+            <p><strong>61</strong> / 100</p>
+          </div>
+          
+          <div class="item-4">
+            <div class="child-item4">
+              <img src="assets/images/icon-visual.svg"/>
+              <p>Visual</p>
+
+            </div>
+            <p><strong>72</strong> / 100</p>
+          </div>
+        </div>
+  
+        <button>Continue</button>
+      </div>
+
+    </div>
+  </div>
+  
+
+</body>
+</html>
